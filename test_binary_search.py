@@ -67,7 +67,7 @@ class ListComprehensionTest(unittest.TestCase):
                 )
 
 
-class BinarySearchTest(TestCase):
+class BinarySearchTest(unittest.TestCase):
 
     """Get the index of the item with an expected number of loops in\
      array [1, 2 . . . 20]

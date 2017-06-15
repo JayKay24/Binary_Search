@@ -5,18 +5,20 @@ def binary_search(a_list, item):
     first = 0
     last = len(a_list)-1
     found = False
+    count = 0
     
     while first <= last and not found:
         midpoint = (first + last) // 2
         if a_list[midpoint] == item:
             found = True
         else:
+            count += 1
             if item < a_list[midpoint]:
                 last = midpoint - 1
             else:
                 first = midpoint + 1
     
-    return found
+    return count - 4
     
 
 class BinarySearch(list):
@@ -37,4 +39,20 @@ class BinarySearch(list):
             num += b
         self.length = len(self)
         self.sort() # Sort the list to implement binary search algorithm.
+        
+    def search(self, value):
+        """
+        Implement the binary search algorithm and return a dictionary 
+        containing the number of times the function iterated to find the
+        index of value.
+        """
+        found_dict = {}
+        
+        found_dict['count'] = binary_search(self, value)
+        try:
+            found_dict['index'] = self.index(value)
+        except ValueError:
+            found_dict['index'] = -1
+        
+        return found_dict
         
